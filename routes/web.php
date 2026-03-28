@@ -7,8 +7,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    $user = auth()->user();
+Route::get('/dashboard', function (\Illuminate\Http\Request $request) {
+    /** @var \App\Models\User $user */
+    $user = $request->user();
     if ($user->role === 'admin') {
         $tickets = \App\Models\Ticket::with('user')->latest()->get();
         $metrics = [

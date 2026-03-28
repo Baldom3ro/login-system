@@ -92,15 +92,15 @@
 
                 <div class="h-8 w-px bg-gray-800"></div>
 
-                <div class="flex items-center gap-3 cursor-pointer group">
+                <a href="{{ route('profile.edit') }}" class="flex items-center gap-3 cursor-pointer group">
                     <div class="flex flex-col items-end">
                         <span class="text-sm font-bold text-white group-hover:text-brand-400 transition-colors">{{ Auth::user()->name }}</span>
-                        <span class="text-[11px] font-black {{ Auth::user()->role === 'admin' ? 'text-brand-500' : 'text-gray-500' }} uppercase tracking-wider">{{ Auth::user()->role }}</span>
+                        <span class="text-[11px] font-black {{ Auth::user()->role === 'admin' ? 'text-brand-500' : 'text-gray-500' }} uppercase tracking-wider group-hover:text-brand-400/80 transition-colors">{{ Auth::user()->role }}</span>
                     </div>
-                    <div class="w-10 h-10 rounded-xl bg-[#11131a] border border-gray-700 flex items-center justify-center text-white font-bold text-sm shadow-inner group-hover:border-brand-500/50 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-[#11131a] border border-gray-700 flex items-center justify-center text-white font-bold text-sm shadow-inner group-hover:border-brand-500/50 group-hover:shadow-brand-500/10 transition-all">
                         {{ substr(Auth::user()->name, 0, 2) }}
                     </div>
-                </div>
+                </a>
             </div>
         </header>
 
